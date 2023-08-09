@@ -4,16 +4,32 @@ import { useState } from "react";
 
 function App() {
 
-  const [textColor, setTextColor] = useState("black");
+  const [count, setCount] = useState(0);
+
+  const increaseCount = () => {
+    setCount(count+1)
+  }
+
+  const decreaseCount = () => {
+    setCount(count -1)
+  }
+
+  const resetCount = () => {
+    setCount(0)
+  }
 
   return (
   <div className='App'>
-    <button onClick={ () => {
-      setTextColor(textColor === "black" ? "red" : "black")
-    }}>
-      Show/Hide
+    <button onClick={increaseCount}>
+      Increase
     </button>
-    <h1 style={{color:textColor}}>Hi my name is Pavan</h1>
+    <button onClick={decreaseCount}>
+      Decrease
+    </button>
+    <button onClick={resetCount}>
+      Reset
+    </button>
+    {count}
   </div>
   );
 }
