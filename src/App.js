@@ -4,15 +4,16 @@ import { useState } from "react";
 
 function App() {
 
-  const [showText, setShowText] = useState(false);
+  const [textColor, setTextColor] = useState("black");
 
-  const toggleText = () =>{
-    setShowText(!showText)
-  }
   return (
   <div className='App'>
-    <button onClick={toggleText}>Show/Hide</button>
-    { showText  && <h1>Hi my name is Pavan</h1>}
+    <button onClick={ () => {
+      setTextColor(textColor === "black" ? "red" : "black")
+    }}>
+      Show/Hide
+    </button>
+    <h1 style={{color:textColor}}>Hi my name is Pavan</h1>
   </div>
   );
 }
