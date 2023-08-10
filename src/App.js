@@ -4,32 +4,55 @@ import { useState } from "react";
 
 function App() {
 
-  const [count, setCount] = useState(0);
+  const [todoList, setTodoList] = useState([]);
 
-  const increaseCount = () => {
-    setCount(count+1)
+  //for individual tasks
+  const [newTask, setNewTask] = useState("");
+
+  const handleChange = (event) =>{
+      setNewTask(event.target.value);
   }
 
-  const decreaseCount = () => {
-    setCount(count -1)
+  const addTask = () => {
+
+    const task = {
+
+      id: todoList.length === 0 ? 1 : todoList[todoList.length -1].id +1,
+      taskName: newTask,
+    }
+
+
+    setTodoList([...todoList,task]);
   }
 
-  const resetCount = () => {
-    setCount(0)
+  const deleteTask = (id) => {
+    // const newTodoList = todoList.filter( (task) => {
+    //   if(task === taskName){
+    //     return false ;
+    //   } else {
+    //     return true ;
+    //   }
+    // })
+
+    setTodoList(todoList.filter((task) => task.id !== id))
   }
 
   return (
   <div className='App'>
-    <button onClick={increaseCount}>
-      Increase
-    </button>
-    <button onClick={decreaseCount}>
-      Decrease
-    </button>
-    <button onClick={resetCount}>
-      Reset
-    </button>
-    {count}
+    <div className="addTask">
+      <input onChange={handleChange}/>
+      <button onClick={addTask}>Add Task</button>
+    </div>
+    <div className="list">
+      {todoList.map( (task)=>{
+        return (
+        <div>
+          <h1>{task.taskName}</h1>
+          <button onClick={() => deleteTask(task.id)}>X</button>
+        </div> 
+        )      
+      })}
+    </div>
   </div>
   );
 }
