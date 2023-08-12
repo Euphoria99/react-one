@@ -5,17 +5,20 @@ import { Task} from './Task.js'
 
 function App() {
 
+  //array of todos
   const [todoList, setTodoList] = useState([]);
 
-  //for individual tasks
+  //task name
   const [newTask, setNewTask] = useState("");
 
+  //detects changes in the input form
   const handleChange = (event) =>{
       setNewTask(event.target.value);
   }
 
   const addTask = () => {
 
+    //If the todoList is not empty, the code assigns an ID that is one more than the ID of the last item in the list.
     const task = {
       id: todoList.length === 0 ? 1 : todoList[todoList.length -1].id +1,
       taskName: newTask,
