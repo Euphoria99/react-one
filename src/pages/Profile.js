@@ -1,4 +1,11 @@
+import { ChangeProfile } from "./ChangeProfile"
+
 export const Profile = (props) => {
-return <h1>This is {props.username}</h1>
-    
+return (
+   <div>
+    {" "}
+       This is {props.username} 
+       <ChangeProfile setUsername={props.setUsername}/>
+   </div>
+)
 }
