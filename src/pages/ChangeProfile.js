@@ -5,7 +5,7 @@ import { AppContext } from "../App"
 export const ChangeProfile = (props) => {
 
     const [newUserName, setNewUsername] = useState("")
-    const {username, setUsername} = useContext(AppContext)
+    const {username, setUsername} = useContext()
 
     return (
         <div>

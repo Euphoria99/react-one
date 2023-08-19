@@ -8,16 +8,21 @@ import { ChangeProfile } from "./pages/ChangeProfile"
 import { Profile } from "./pages/Profile"
 import { useState , createContext } from "react";
 
-export const AppContext = createContext();
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 
 function App() {
 
-  const [username, setUsername] = useState("Pavan")
-  
+  const client = new QueryClient({defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false
+    }
+  }});
+  //removing the object or setting the flag to true will trigger a fetch for new data.
+
   return (
   <div className='App'>
-    <AppContext.Provider value={{username, setUsername}}>      
+    <QueryClientProvider client={client}>
     <Router>
         <Navbar />
       <Routes>
@@ -28,9 +33,7 @@ function App() {
         <Route path="*" element={<h1> PAGE NOT FOUND</h1>}/>
       </Routes>
     </Router>
-    </AppContext.Provider>
-
-
+    </QueryClientProvider>
   </div>
   );
 }
