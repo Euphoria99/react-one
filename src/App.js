@@ -1,16 +1,17 @@
 import './App.css';
-import { useCount } from "./useCount";
+import { Person } from './Persons'
 
 
 function App() {
 
-  const {count, increase, decrease, reset} = useCount();
   return (
   <div className='App'>
-    {count}
-    <button onClick={increase}>Increase</button>
-    <button onClick={decrease}>Decrease</button>
-    <button onClick={reset}>Reset</button>
+    <Person 
+    name="Pavan"
+    email="pavan@gmail.com"
+    isMarried={true}
+    friends={["woe", "juanita", "savannah"]}
+  />
   </div>
   );
 }
