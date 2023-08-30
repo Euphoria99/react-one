@@ -1,24 +1,20 @@
 import './App.css';
-import { Person, Country } from './components/Person'
+import React from 'react';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import { Main } from "./pages/main"
+import { Login } from "./pages/login"
+import { Navbar } from './components/navbar';
 
 function App() {
-
-  //defining a function
-  const getAge = (name: string): number => {
-    return 24
-  }
   return (
     <div className="App">
-      <div className='App'>
-        <Person
-          name="Pavan"
-          email="pavan@gmail.com"
-          age={25}
-          isMarried={true}
-          friends={["woe", "juanita", "savannah"]}
-          country={Country.India}
-        />
-      </div>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
