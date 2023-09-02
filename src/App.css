@@ -126,6 +126,15 @@ input[type="submit"]:hover {
   background-color: #0056b3;
 }
 
+/* Container for centering */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+
 /* Card Container */
 .card {
   border: 1px solid #ccc;
