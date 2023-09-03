@@ -125,3 +125,42 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #0056b3;
 }
+
+/* Container for centering */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+
+/* Card Container */
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin: 16px;
+  width: 300px; /* Adjust the width to your preference */
+  background-color: #fff;
+}
+
+/* Title */
+.titleCard {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+/* Body */
+.bodyCard {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+/* Footer */
+.footerCard {
+  font-size: 14px;
+  color: #777;
+}
